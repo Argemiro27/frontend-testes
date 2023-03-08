@@ -1,39 +1,50 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 import { FaUser, FaLock } from 'react-icons/fa';
-import api from "../api";
-
-interface LoginProps {
-  email: string;
-  password: string;
-}
+import axios from 'axios';
 
 function Login() {
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [user, setUser] = useState(null);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
 
-    const loginProps: LoginProps = { email, password };
+      console.log(email, password);
 
-    api.post('api/login', loginProps)
-      .then(response => {
-        // armazenar o token de autenticação no localStorage ou sessionStorage
-        localStorage.setItem('token', response.data.token);
-        // redirecionar o usuário para a página protegida
-        window.location.href = '/inicio';
-      })
-      .catch(error => console.error(error));
+      try {
+          const response = await axios.post('http://localhost:3000/login',
+              JSON.stringify({email, password}),
+              {
+                  headers: { 'Content-Type': 'application/json' }
+              }            
+          );
+
+          console.log(response.data);
+          setUser(response.data);
+
+      } catch (error: any) {
+          if (!error?.response) {
+              console.log('Erro ao acessar o servidor');
+          // eslint-disable-next-line eqeqeq
+          } else if (error.response.status == 401) {
+              console.log('Usuário ou senha inválidos');
+          }
+      }
+
   };
 
   return (
+    <div className="login-form-wrap">
+    {user == null ? (
       <Container>
         <img src="../assets/logo.png" alt="" />
         <Card>
           <Title>Inter Aduaneira</Title>
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleLogin}>
             <Icon><FaUser/></Icon>
             <Label htmlFor="email">Email:</Label>
             <Input
@@ -58,10 +69,15 @@ function Login() {
           </Link>
         </Card>
       </Container>
+      ) : (
+        <h1>Clique <Link to='/inicio'>AQUI</Link> para ser redirecionado.</h1>
+    )}
+    </div>  
   );
 };
 
 export default Login;
+
 
 const Container = styled.div`
   display: flex;

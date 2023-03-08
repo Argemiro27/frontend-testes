@@ -58,7 +58,6 @@ const Card = styled.div`
   border-radius: 0.5rem;
 `
 
-interface RegisterProps {}
 
 function Register(){
   const [email, setEmail] = useState("");

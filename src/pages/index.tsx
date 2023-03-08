@@ -1,0 +1,10 @@
+export {default as Login} from "./Login";
+export {default as Register} from "./Register";
+export {default as Cadastros} from "./LoggedIn/Cadastros";
+export {default as ConsultaProcesso} from "./LoggedIn/ConsultaProcesso";
+export {default as Ferramentas} from "./LoggedIn/Ferramentas";
+export {default as Inicio} from "./LoggedIn/Inicio";
+export {default as Processos} from "./LoggedIn/Processos";
+export {default as Propostas} from "./LoggedIn/Propostas";
+export {default as TiposProcesso} from "./LoggedIn/TiposProcesso";
+export {default as Usuarios} from "./LoggedIn/Usuarios";

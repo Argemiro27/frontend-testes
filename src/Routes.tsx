@@ -1,15 +1,7 @@
 import React from "react";
 import { Route, BrowserRouter as Router, Routes} from "react-router-dom";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Inicio from "./pages/LoggedIn/Inicio";
-import Processos from "./pages/LoggedIn/Processos";
-import ConsultaProcesso from "./pages/LoggedIn/ConsultaProcesso";
-import TiposProcesso from "./pages/LoggedIn/TiposProcesso";
-import Propostas from "./pages/LoggedIn/Propostas";
-import Usuarios from "./pages/LoggedIn/Usuarios";
-import Ferramentas from "./pages/LoggedIn/Ferramentas";
-import Cadastros from "./pages/LoggedIn/Cadastros";
+import {Login, Register, Inicio, Processos, ConsultaProcesso, TiposProcesso, Propostas, Usuarios, Ferramentas, Cadastros} from "./pages";
+
 
 const MyRoutes = () => {
    return(
