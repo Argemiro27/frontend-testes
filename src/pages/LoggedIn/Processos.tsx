@@ -1,9 +1,15 @@
-import GlobalStyle from "../../styled/GlobalStyle";
+import Content from "../../components/Content";
+import Header from "../../components/Header";
+import Nav from "../../components/Nav";
 
 const Processos = () => {
     return(
         <>
-            <GlobalStyle/>
+            <Nav/>          
+            <Header/>
+            <Content>
+                
+            </Content>   
         </>
     );
 };
