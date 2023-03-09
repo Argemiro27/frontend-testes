@@ -4,26 +4,6 @@ body {
   background-color: #081b3d;
 }
 
-table{
-  position: relative;
-  right: 20px;
-  font-size: 12px;
-  border-color: #9fa9bf;
-  width: 103.3%;
-  border-spacing:0;
-}
-
-table thead{
-  border-color: #9fa9bf;
-  height: 50px;
-  background-color: #9fa9bf;
-}
-
-table tbody{
-  border-color: #9fa9bf;
-  height: 50px;
-  background-color: #9fa9bf;
-}
 
 code {
   font-family: 'Montserrat', sans-serif;
