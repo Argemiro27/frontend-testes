@@ -3,19 +3,42 @@ import Nav from "../../components/Nav";
 import { FaPlusCircle } from 'react-icons/fa';
 import Button from "../../components/Button";
 import Content from "../../components/Content";
+import { useState } from "react";
+import { TipoProcesso } from '../../types/TipoProcesso';
+import Table from "../../components/Table";
+import { TBody, THead } from "../../components/Table/styles";
 
 
 const TiposProcesso = () => {
+    const[table,setTable] = useState<TipoProcesso[]>([
+        {
+            id: 1, 
+            departamento: 'Exportação', 
+            descricao: 'Aeronave GOL',  
+            prefixo: 'E',
+            sufixo: 'AER',
+            exemplo: '22E000001AER',
+        },
+        {
+            id: 2, 
+            departamento: 'Exportação', 
+            descricao: 'AMB',  
+            prefixo: 'E',
+            sufixo: 'AMB',
+            exemplo: '22E000001AMB',
+        }
+    ]);
     return(
         <>
+        
         <Nav/>
         <Header/>
         <Content>
             <br/>
             <Button><FaPlusCircle/>ADICIONAR NOVO TIPO DE PROCESSO</Button>
             <br/>
-            <table>
-                <thead>
+            <Table>
+                <THead>
                     <tr>
                         <th>DEPARTAMENTO</th>
                         <th>DESCRIÇÃO</th>
@@ -23,8 +46,8 @@ const TiposProcesso = () => {
                         <th>SUFIXO</th>
                         <th>EXEMPLO</th>
                     </tr>
-                </thead>
-                <tbody>
+                </THead>
+                <TBody>
                     <tr>
                         <th></th>
                         <th></th>
@@ -32,8 +55,8 @@ const TiposProcesso = () => {
                         <th></th>
                         <th></th>
                     </tr>
-                </tbody>
-            </table>
+                </TBody>
+            </Table>
         </Content>
         </>
     );

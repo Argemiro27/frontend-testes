@@ -1,4 +1,5 @@
-export interface IProcesso {
+export type Processo = {
+    id: number;
     departamento: string;
     descricao: string;
     prefixo: string;
